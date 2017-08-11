@@ -1,0 +1,98 @@
+<% include ../partials/header %>
+
+<script>
+  window.initMap = function() {};
+</script>
+<div style="min-height: 88.6%; padding-top: 50px;">
+  <div class="campgrounds-index">
+    <div class="img-opacity"> 
+      <h1 class="welcome">CAMPGROUNDS</h1>
+      <p class="welcome-text">View our hand-picked campgrounds from all over the world</p>
+      
+      <div class="container search-bar-div">
+        <div class="col-lg-6 col-lg-offset-3">
+          <form accept-charset="utf-8" class="input-group" action="search/results" method="GET" role="search">
+            <div class="input-group">
+              <div class="input-group-btn">
+                <select id="select" class="selectpicker" name="option">
+                  <option value="all">All</option>
+                  <option value="name">Name</option>
+                  <option value="location">Location</option>
+                </select>
+              </div>
+              <input type="text" class="form-control" value name="search" placeholder="...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </form>
+        </div>  
+        <!--End of search bar-->
+      </div>
+      <!--End of row-->
+    </div>
+  </div>
+  
+  <!--Row-->
+  <div class="new-campground-link">
+    <h4 class="new-campground-header">You can also create a Campground.
+      <% if(!currentUser) { %>
+        <a class="nav-modal" style="cursor: pointer;" ><b class="cd-signin">Click here to post a Campground</b></a>
+      <% } else { %>
+        <a href="campgrounds/new" style="cursor: pointer;" >Click here to post a Campground</a>
+      <% } %>  
+      <i class="chevron circle right icon" style="line-height: 0.8em; color: rgba(33, 150, 243, 0.52);"></i>
+    </h4>
+  </div>
+  
+  <div  class="container">
+  <div class="row text-center d-fw">
+    <% campgrounds.forEach(function(campground){ %>
+      <div class="col-md-4 col-sm-12" style="text-align: left;">
+        <div class="thumbnail" style="height:250px; width:100%;">
+          <a href="/campgrounds/<%= campground._id %>">
+            <img src="<%= campground.image %>" style="height:250px; width:100%; position:relative;">
+          </a>
+          <div class="caption">
+            <h2 style="margin-bottom: 1px; padding-bottom:0;" class="h2-campground-name"><a class="a-campground-name" href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></h2>
+            <h4 style="margin-top: 0; padding-top:0; margin-bottom: 1px; padding-bottom:0;"><%= campground.location.split(",")[1] %></h4>
+            <!--<div class="ui star rating no-margin" data-rating="3" data-max-rating="5" style="display: inline-block;"></div>-->
+					  <!--<p class="p-show no-margin" style="display: inline-block;">387 REVIEWS</p>-->
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+  <% if (paginate.hasPreviousPages || paginate.hasNextPages(pageCount) ) { %>
+  <nav aria-label="Page navigation">
+    <ul class="pagination pagination-lg">
+      <% if (paginate.hasPreviousPages) { %>
+        <li>
+          <a aria-label="Previous" href="<%= paginate.href(true) %>">
+            <span aria-hidden="true">&laquo;</span>
+          </a>  
+        </li>
+      <% } %>  
+      <% if (pages) { %>
+        <% pages.forEach(function(page){ %>
+          <% if (currentPage === page.number) { %>
+            <li class="active"><a href="<%= page.url %>"><%= page.number %></a></li>
+          <% } else { %>  
+            <li class=""><a href="<%= page.url %>"><%= page.number %></a></li>
+          <% } %>  
+        <% }); %>
+      <% } %>  
+      <% if (paginate.hasNextPages(pageCount)) { %>
+        <li>
+          <a href="<%= paginate.href() %>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      <% } %>  
+      </ul>      
+  </nav>
+  <% } %> 
+  </div>
+</div>
+
+<% include ../partials/footer %>

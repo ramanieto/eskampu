@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <!-- Favicon -->
+	
+  	<!--<link rel="apple-touch-icon-precomposed" sizes="57x57" href="../stylesheets/favicon/favicon-57x57.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../stylesheets/favicon/favicon-114x114.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../stylesheets/favicon/favicon-72x72.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../stylesheets/favicon/favicon-144x144.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="60x60" href="../stylesheets/favicon/favicon-60x60.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../stylesheets/favicon/favicon-120x120.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="76x76" href="../stylesheets/favicon/favicon-76x76.png" />-->
+   <!-- <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../stylesheets/favicon/favicon-152x152.png" />-->
+   <!-- <link rel="icon" type="image/png" href="../stylesheets/favicon/favicon-196x196.png" sizes="196x196" />-->
+   <!-- <link rel="icon" type="image/png" href="../stylesheets/favicon/favicon-96x96.png" sizes="96x96" />-->
+    <link rel="shortcut icon" type="image/x-icon" href="../stylesheets/favicon/favicon-32x32.ico?" sizes="32x32" />
+    <!--<link rel="icon" type="image/png" href="../stylesheets/favicon/favicon-16x16.png" sizes="16x16" />-->
+    <!--<link rel="icon" type="image/png" href="../stylesheets/favicon/favicon-128.png" sizes="128x128" />-->
+    <!--<meta name="application-name" content="SKAMPU"/>-->
+    <!--<meta name="msapplication-TileColor" content="#FFFFFF" />-->
+    <!--<meta name="msapplication-TileImage" content="../stylesheets/favicon/mstile-144x144.png" />-->
+    <!--<meta name="msapplication-square70x70logo" content="../stylesheets/favicon//mstile-70x70.png" />-->
+    <!--<meta name="msapplication-square150x150logo" content="../stylesheets/favicon/mstile-150x150.png" />-->
+    <!--<meta name="msapplication-wide310x150logo" content="../stylesheets/favicon/mstile-310x150.png" />-->
+    <!--<meta name="msapplication-square310x310logo" content="../stylesheets/favicon/mstile-310x310.png" />-->
+    
+    <!--Scripts-->
+    
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/ScrollToPlugin.min.js"></script>
+    
+    <!--Links-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <!--<link rel="stylesheet" href="/stylesheets/landing2.css">-->
+    <link  href="/font/weathericons-regular-webfont.ttf">
+    <link  href="/font/weathericons-regular-webfont.svg">
+    <link  href="/font/weathericons-regular-webfont.eot">
+    <link  href="/font/weathericons-regular-webfont.woff">
+    <link  href="/font/weathericons-regular-webfont.woff2">
+    <link rel="stylesheet" href="/stylesheets/weather-icons.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Abel|Dosis|Exo|Josefin+Sans|Open+Sans|PT+Sans|Raleway|Roboto|Source+Sans+Pro" rel="stylesheet">
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js">-->
+    
+    <!--Mobile display Meta-->
+    
+    <!--<meta content='width=device-width, initial-scale=1' name='viewport'/>-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--<meta name="viewport" content="user-scalable=no, width=device-width">-->
+    
+    <title>EsKampu</title>
+  </head>
+<body>
+  <div class="navbar navbar-default navbar-fixed-top">
+  	<!--<div class="container">-->
+  		<div class="navbar-header">
+  		    <!--<li>-->
+    		    <a class="navbar-brand brand-phone" href="/">
+    				  <img class="brand" alt="Brand" src="/../stylesheets/css/ESKAMPU-LOGOV1.png">
+    			  </a>
+  				<!--</li>-->
+  			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+  	    </button>
+      </div>
+  	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  			<ul class="nav navbar-nav" style="width:100%">
+  				<li class="about" style="padding-left:22%;"><a href="/about">ABOUT</a></li>
+  				<li><a href="/contact" style="padding-right: 2em;">CONTACT</a></li>
+  				<li><a href="/campgrounds" style="padding-right: 2em;">CAMPGROUNDS</a></li>
+  				<!--<li><a href="/campgrounds" style="padding-right: 2em;">CAMPGROUNDS</a></li>-->
+  				<li>
+    		    <a class="navbar-brand" style="margin-right: 2.8em;" href="/">
+    				  <img alt="Brand" src="/../stylesheets/css/ESKAMPU-LOGOV1.png">
+    			  </a>
+  				</li>
+  			  <% if(!currentUser){ %>  
+            <li><a href="/login">LOGIN</a></li>
+            <li class="sign-up"><a id="boton" href="/register">SIGN UP</a></li>
+          <% } else { %>
+            <% if(!currentUser.name) { %>
+              <li><a style="display: inline-block;" href="/profile/<%= currentUser._id %>"><%= currentUser.username %></a></li>
+              <li style="margin-left:0;"><a href="/logout">LOGOUT <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>  
+            <% } else { %>
+              <li><a style="display: inline-block;" href="/profile/<%= currentUser._id %>"><%= currentUser.name.split(" ")[0].toUpperCase(); %></a></li>
+              <li style="margin-left:0;"><a href="/logout">LOGOUT <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+            <% } %>
+          <% } %>
+          <li style="padding: 3px;  padding-left: 1.5%">
+            <form id="nav-form" accept-charset="utf-8" class="navbar-form" action="../search/results" method="GET" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" value name="search" style="border-radius: .7em;"/>
+                <i type="submit" id="search-icon" class="search icon" style="position: absolute; top: 14px; right: 22px; font-size: 15px; cursor: pointer; color: #ff9800; height: 35px; border-color: rgba(0, 0, 0, 0.4);"></i>
+              </div>
+              <!--<button type="submit" class="btn btn-default">Submit</button>-->
+            </form>
+          </li>
+           <script>
+            $( "#search-icon" ).on("click",function() {
+              $( "#nav-form" ).submit();
+            });
+          // </script>
+  				<!--<li><a href="/login">LOG IN</a></li>-->
+  				<!--<li class="sign-up"><a href="/register">SIGN UP</a></li>-->
+  			</ul>	
+  		</div>	
+  	<!--</div>-->
+  </div>
+  <div class="container">
+      <% if(error && error.length > 0) { %>
+    <div class="alert alert-danger" role="alert">
+      <%= error %>
+    </div>
+      <% } %>
+      <% if(success && success.length > 0) { %>
+    <div class="alert alert-success" role="alert">
+      <%= success %>
+    </div>
+      <% } %>
+  </div>
+
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center;">Add New Comment to <%= campground.name %></h1>
+        <div style="width: 30%; margin: 30px auto;">
+            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="comment[text]" placeholder="text">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/campgrounds/<%= campground._id %>">Go back</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
