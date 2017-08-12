@@ -95,7 +95,7 @@ passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
     // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io:80/auth/facebook/callback',
-    callbackURL: 'https://wwww.eskampu.com/auth/facebook/callback',
+    callbackURL: 'http://www.eskampu.com/auth/facebook/callback',
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture.type(large)', 'emails']
   },
@@ -155,7 +155,7 @@ passport.use(new GoogleStrategy({
     clientID: GOOGLE_APP_ID,
     clientSecret: GOOGLE_APP_SECRET,
     // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io/auth/google/callback',
-    callbackURL: 'https://wwww.eskampu.com/auth/google/callback',
+    callbackURL: 'http://www.eskampu.com/auth/google/callback',
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture', 'emails']
   },
