@@ -1,5 +1,9 @@
 <% include ../partials/header %>
-  <div class="container">
+<script>
+  window.initMap = function() {}
+</script>
+
+<div class="container">
       <% if(error && error.length > 0) { %>
     <div class="alert alert-danger" role="alert">
       <%= error %>
