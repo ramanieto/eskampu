@@ -31,19 +31,11 @@ $(document).ready(function(){
   }
 
   
-
-  // var checkb = ('#accept-terms').is(':checked');
-  // if (!(checkb)) {
-  //   $('input[type=submit].full-width.has-padding:first').prop('disabled', true);
-  // } else {
-  //   $('input[type=submit].full-width.has-padding:first').prop('disabled', false);
-  // }
-  
   // ========================================================================= //
   // LOGIC FOR LANDING PAGE NAVBAR TO CHANGE COLOR
   
   
-  if (document.URL.toString() === "http://webdevbootcamp2-ramanieto.c9users.io" || document.URL.toString() === "http://webdevbootcamp2-ramanieto.c9users.io/") {
+  if (document.URL.toString() === "http://webdevbootcamp2-ramanieto.c9users.io" || document.URL.toString() === "http://webdevbootcamp2-ramanieto.c9users.io/" || document.URL.toString() === "https://powerful-badlands-51050.herokuapp.com" || document.URL.toString() === "https://powerful-badlands-51050.herokuapp.com/") {
     var scroll_start = 0;
     var startchange = $("header");
     var offset = startchange.offset();

@@ -1,6 +1,4 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans:400,300,700";
-/*@import "http://weloveiconfonts.com/api/?family=entypo";*/
-/*@import url(http://weloveiconfonts.com/api/?family=fontawesome);*/
 
 html {
   margin: 0;
@@ -13,11 +11,11 @@ body {
 }
 
 img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
-    image-rendering: -moz-crisp-edges;         /* Firefox */
-    image-rendering: -o-crisp-edges;         /* Opera */
-    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-    image-rendering: -webkit-crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+  image-rendering: -moz-crisp-edges;         /* Firefox */
+  image-rendering: -o-crisp-edges;         /* Opera */
+  image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+  image-rendering: -webkit-crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
 }
 
 input[type=text], input[type=password], input[type=email] {
