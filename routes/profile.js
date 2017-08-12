@@ -12,8 +12,8 @@ router.get("/:user_id", function(req, res){
   Campground.find({"author.id": ObjectId(req.params.user_id)}, function(err, foundCampground){
     if(err) {
       console.log(err);
-    } else {
-      if (foundCampground.length === 0){
+    } 
+    if (!foundCampground.length) {
         User.findById(ObjectId(req.params.user_id), function(err, user){
           if (err) {
             console.log(err);
@@ -21,10 +21,9 @@ router.get("/:user_id", function(req, res){
             res.render("profile/show", {user: user});
           }  
         });
-      } else {
+    } else {
       res.render("profile/show", {user: foundCampground[0].author, campgrounds: foundCampground});
-      }
-    }  
+    }
   });
 });
 

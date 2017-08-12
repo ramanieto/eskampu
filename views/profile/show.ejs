@@ -16,7 +16,7 @@
         <% } %>
     </div>
     <% if (!user) { %>
-    <h1>User does not exist</h1>
+      <h1>User does not exist</h1>
     <% } else { %>
       <% if (!user.name) { %>
       <h1><%= user.username%>'s Profile</h1>
@@ -58,22 +58,24 @@
           <% } %>
         </div>
       </div>
-    <h1>Campgrounds created by this user:</h1>
-    <div class="row text-center d-fw">
-      <% campgrounds.forEach(function(campground){ %>
-        <div class="col-md-4 col-sm-12" style="text-align: left;">
-          <div class="thumbnail" style="height:250px; width:100%;">
-            <a href="/campgrounds/<%= campground._id %>">
-              <img src="<%= campground.image %>" style="height:250px; width:100%; position:relative;">
-            </a>
-            <div class="caption">
-              <h2 style="margin-bottom: 1px; padding-bottom:0;" class="h2-campground-name"><a class="a-campground-name" href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></h2>
-              <h4 style="margin-top: 0; padding-top:0; margin-bottom: 1px; padding-bottom:0;"><%= campground.location.split(",")[1] %></h4>
+      <h1>Campgrounds created by this user:</h1>
+      <% if (typeof campgrounds == 'object' && campgrounds) {%>
+      <div class="row text-center d-fw">
+        <% campgrounds.forEach(function(campground){ %>
+          <div class="col-md-4 col-sm-12" style="text-align: left;">
+            <div class="thumbnail" style="height:250px; width:100%;">
+              <a href="/campgrounds/<%= campground._id %>">
+                <img src="<%= campground.image %>" style="height:250px; width:100%; position:relative;">
+              </a>
+              <div class="caption">
+                <h2 style="margin-bottom: 1px; padding-bottom:0;" class="h2-campground-name"><a class="a-campground-name" href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></h2>
+                <h4 style="margin-top: 0; padding-top:0; margin-bottom: 1px; padding-bottom:0;"><%= campground.location.split(",")[1] %></h4>
+              </div>
             </div>
           </div>
-        </div>
-      <% }); %>
-    </div>
+        <% }); %>
+      </div>
+      <% } %>
     <% } %>
   </div>
 
