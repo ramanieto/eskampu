@@ -27,6 +27,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
 
 //Connecting mongoose to the DB
 mongoose.connect("mongodb://localhost/yelp_camp_v12");
+//mongodb://<dbuser>:<dbpassword>@ds143900.mlab.com:43900/eskampu
 
 // Init app
 var app = express();
@@ -92,7 +93,8 @@ var FACEBOOK_APP_SECRET= 'f9b223efdd87f37689dc2905d96ca536';
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io:80/auth/facebook/callback',
+    // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io:80/auth/facebook/callback',
+    callbackURL: 'https://wwww.eskampu.com/auth/facebook/callback',
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture.type(large)', 'emails']
   },
@@ -151,7 +153,8 @@ var GOOGLE_APP_SECRET= 'bqlcPdcly_J2IiGj4A1B3UBK';
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_APP_ID,
     clientSecret: GOOGLE_APP_SECRET,
-    callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io/auth/google/callback',
+    // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io/auth/google/callback',
+    callbackURL: 'https://wwww.eskampu.com/auth/google/callback',
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture', 'emails']
   },
