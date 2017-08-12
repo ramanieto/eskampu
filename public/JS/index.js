@@ -15,7 +15,11 @@ $(document).ready(function(){
   
   $('.rating').rating();
   
+  // ========================================================================= //
+  
   $('.dropdown-toggle').dropdown();
+  
+  // ========================================================================= //
 
   $('#profile-edit :checkbox').each(function() { // Load previous values
     $(this).prop('checked', localStorage.getItem(this.id) === 'true');
@@ -306,7 +310,7 @@ $(document).ready(function(){
         
         var formCheckbox = $('#accept-terms');
         
-        $('input[type="submit"]').on('click', function(event){
+        $('.signup-submit').on('click', function(event){
           if(!formCheckbox.is(':checked')) {
             event.stopImmediatePropagation();
             event.preventDefault();

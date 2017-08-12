@@ -142,7 +142,7 @@
     		<ul class="cd-main-nav">
     			<li><a href="/campgrounds">Campgrounds</a></li>
     			<li><a href="/about">About</a></li>
-    			<li><a href="/contact">Contact</a></li>
+    			<!--<li><a href="/contact">Contact</a></li>-->
     			<% if(!currentUser){ %>  
             <li class="nav-modal"><a class="cd-signin">Login</a></li>
 	          <li class="nav-modal"><a class="cd-signup">Sign up</a></li>
@@ -219,8 +219,8 @@
   					</p>
   				</form>
   				
-  				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
-  				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+  				<p class="cd-form-bottom-message"><a href="/forgot">Forgot your password?</a></p>
+
   			</div> <!-- cd-login -->
   
   			<div id="cd-signup"> <!-- sign up form -->
@@ -248,32 +248,32 @@
   
             <p class="fieldset" style="text-align:center">
               <!--Facebook-->
-              <a href="../auth/facebook" type="button" class="btn btn-fb"><i class="fa fa-facebook left"></i> Facebook</a>
+              <a href="../auth/facebook" type="button" class="btn btn-fb signup-submit"><i class="fa fa-facebook left"></i> Facebook</a>
               <!--Google +-->
-              <a href="../auth/google" type="button" class="btn btn-gplus"><i class="fa fa-google-plus left"></i> Google +</a>
+              <a href="../auth/google" type="button" class="btn btn-gplus signup-submit"><i class="fa fa-google-plus left"></i> Google +</a>
             </p>
   
   					<p class="fieldset">
   						<input type="checkbox" id="accept-terms">
-  						<label for="accept-terms">I agree to the <a href="#0">Terms</a></label>
+  						<label for="accept-terms">I agree to the <a href="/terms&privacy">Terms and Privacy</a></label>
   						<span class="cd-error-message"></span>
   					</p>
   
   					<p class="fieldset">
-  						<input class="full-width has-padding" type="submit">
+  						<input class="full-width has-padding signup-submit" type="submit">
   					</p>
   				</form>
   
-  				<!-- <a href="#0" class="cd-close-form">Close</a> -->
+  				 <a href="#0" class="cd-close-form">Close</a> 
   			</div> <!-- cd-signup -->
   
   			<div id="cd-reset-password"> <!-- reset password form -->
   				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
   
-  				<form class="cd-form">
+  				<form class="cd-form" action="/forgot" method="POST">
   					<p class="fieldset">
   						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-  						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+  						<input class="full-width has-padding has-border" id="reset-email" type="email" name="email" placeholder="E-mail">
   						<span class="cd-error-message">Error message here!</span>
   					</p>
   

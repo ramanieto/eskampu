@@ -57,7 +57,9 @@ var UserSchema = new mongoose.Schema({
         ref: "Campground"
       }
     }
-  ]
+  ],
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
   // active: false,
   // email_confirmation_hash: String
 });
