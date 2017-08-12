@@ -39,8 +39,9 @@
       	</div>
       </div>
       <div class="explanation">
-        <h3>Placeholder!!!!!</h3>
-        <p>Consectetur aperiam alias voluptates rerum eveniet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, numquam, necessitatibus, soluta quod quia error eos perspiciatis nostrum nam deserunt delectus nesciunt dicta accusamus illo harum quo voluptates incidunt. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, delectus, neque, eos pariatur sint aliquid at dolorum sit animi maxime nam atque repellat ad aut dolores sunt vero ab minus.</p>
+        <h3>Welcome to EsKampu!!</h3>
+        <p>"Nature's peace will flow into you as sunshine flows into trees. The winds will blow their own freshness into you, and the storms their energy, while cares will drop off like autumn leaves." <strong>—John Muir</strong>, <em>Our National Parks</em></p>
+        <p>Eskampu wants to help you enjoy the bounty that nature has to offer. Whether you are looking to contemplate the wild on a solo journey, or get outside with the whole family, Eskampu has got you covered. Read reviews on campgrounds from around the U.S. and across the globe to find your next adventure. You can also post new campgrounds and reviews to help your fellow campers discover their next vacation destination.</p>
       </div>
       <div class="container l-a-bc-and-h">
         <div class="container">
@@ -70,6 +71,9 @@
       	<div class="featured">
       		<h4 class="featured-h4">FEATURED CAMPGROUNDS</h4>
       		<div class="row">
+      		    <% if (campgrounds.length < 1) { %>
+      		      <h1>No Campgrounds at the moment</h1>
+      		    <% } %>
       	      <% for(var i = 0; i < campgrounds.length; i++) { %>
                 <% if(i === 0) { %>
                   <div class="col-md-8 featured-img">
