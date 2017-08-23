@@ -1,175 +1,176 @@
 <% include ../partials/header %>
-  <div class="container" style="position: relative;">
-    <% if (typeof error == 'object' && error) { %>
-      <% if (error.length > 0){ %>  
-        <div class="alert alert-danger" role="alert"><%= error %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
-      <% } %>
-    <% } %> 
-    <% if (success && success.length > 0) { %>
-      <div class="alert alert-success" role="alert"><%= success %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
-    <% } %>
-  </div>
 
-  <div class=container>
-    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-      <a class="btn btn-warning" style="margin:10px 0 10px 10px; display: inline-block;" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-      <form id="delete-form" style="margin:10px 0 10px 0; display: inline-block;" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger">Delete</button>
-      </form>
+<script>
+  // set campground to strings of the object campground
+  var campground = <%- JSON.stringify(campground, ['latitude', 'longitude']) %>;
+  
+  var map;
+  var marker;
+  
+  var myLatlng = { lat: Number(campground.latitude), lng: Number(campground.longitude) };
+  
+  function initMap() {
+    
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: myLatlng
+    });
+    
+    marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map
+    });
+    
+    map.addListener('center_changed', function() {
+      // 3 seconds after the center of the map has changed, pan back to the
+      // marker.
+      window.setTimeout(function() {
+        map.panTo(marker.getPosition());
+        }, 10000);
+    });
+
+    marker.addListener('click', function() {
+      // map.setZoom(16);
+      map.setCenter(marker.getPosition());
+    });
+  }
+</script>
+
+<div class="container" style="position: relative;">
+  <% if (typeof error == 'object' && error) { %>
+    <% if (error.length > 0){ %>  
+      <div class="alert alert-danger" role="alert"><%= error %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
     <% } %>
-  </div>
-  
-  <script>
-    // set campground to strings of the object campground
-    var campground = <%- JSON.stringify(campground, ['latitude', 'longitude']) %>;
-    
-    var map;
-    var marker;
-    
-    var myLatlng = { lat: Number(campground.latitude), lng: Number(campground.longitude) };
-    
-    function initMap() {
-      
-      map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: myLatlng
-      });
-      
-      marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map
-      });
-      
-      map.addListener('center_changed', function() {
-        // 3 seconds after the center of the map has changed, pan back to the
-        // marker.
-        window.setTimeout(function() {
-          map.panTo(marker.getPosition());
-          }, 10000);
-      });
-  
-      marker.addListener('click', function() {
-        // map.setZoom(16);
-        map.setCenter(marker.getPosition());
-      });
-    }
-  </script>
- 
-  <div class="container image-section" style="">
-	  <img class="image-header" src="<%= campground.image %>">
-  </div>
-  
-  
-	<div class="container info-section">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="desc-header">
-					<h1 class="no-margin"><%= campground.name.toUpperCase() %></h1>
-					<h2 class="no-margin"><%= campground.location.toUpperCase() %></h2>
-					<div class="no-margin"></div>
-					<!--<div class="ui star rating no-margin" data-rating="3" data-max-rating="5" style="display: inline-block;"></div>-->
-					<!--<p class="p-show no-margin" style="display: inline-block;">387 REVIEWS</p>-->
-					<p class="p-show no-margin">
-				    	<a href="/profile/<%= campground.author.id %>"><em>Submitted By <%= campground.author.username %></em></a>
-					</p>
-				</div>
-				
-				<h2 class="desc">DESCRIPTION:</h2>
-				<p class="p-show p-description"><%= campground.description %></p>
-				
+  <% } %> 
+  <% if (success && success.length > 0) { %>
+    <div class="alert alert-success" role="alert"><%= success %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+  <% } %>
+</div>
+
+<div class=container>
+  <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+    <a class="btn btn-warning" style="margin:10px 0 10px 10px; display: inline-block;" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+    <form id="delete-form" style="margin:10px 0 10px 0; display: inline-block;" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-danger">Delete</button>
+    </form>
+  <% } %>
+</div>
+
+<div class="container image-section" style="">
+  <img class="image-header" src="<%= campground.image %>">
+</div>
+
+<div class="container info-section">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="desc-header">
+				<h1 class="no-margin"><%= campground.name.toUpperCase() %></h1>
+				<h2 class="no-margin"><%= campground.location.toUpperCase() %></h2>
+				<div class="no-margin"></div>
+				<!--<div class="ui star rating no-margin" data-rating="3" data-max-rating="5" style="display: inline-block;"></div>-->
+				<!--<p class="p-show no-margin" style="display: inline-block;">387 REVIEWS</p>-->
+				<p class="p-show no-margin">
+			    	<a href="/profile/<%= campground.author.id %>"><em>Submitted By <%= campground.author.username %></em></a>
+				</p>
 			</div>
-			<div class="col-md-6">
-				<div class="weather-main">
+			
+			<h2 class="desc">DESCRIPTION:</h2>
+			<p class="p-show p-description"><%= campground.description %></p>
+			
+		</div>
+		<div class="col-md-6">
+			<div class="weather-main">
+				<div class="row">
 					<div class="row">
-						<div class="row">
-							<div class="col-md-12 weather-city">
-								<div class="weather city-name"><%= campground.name.toUpperCase() %></div>
-							</div>	
+						<div class="col-md-12 weather-city">
+							<div class="weather city-name"><%= campground.name.toUpperCase() %></div>
+						</div>	
+					</div>
+					<div class="row">
+						<div class="col-md-3 weather-icon">
+							<div class="weather icon-display">
+							  <div class="icon-div"></div>
+							</div>
 						</div>
-						<div class="row">
-							<div class="col-md-3 weather-icon">
-								<div class="weather icon-display">
-								  <div class="icon-div"></div>
-								</div>
-							</div>
-						  <div class="col-md-6 weather-temp">
-						    <div class="weather temp">
-						      <div class="temp_max"></div>
-							    <div class="temp_min"></div>
-						    </div>
-							</div>
-							<div class="col-md-3 weather-cond">
-								<div class="weather cond">
-								  <div class="wind-div">
-								    <img class="wind" src="/../img/WIND-SMALL.png">
-								    <span class="wind-small"></span>  
-								  </div>
-								  <div class="humidity-div">
-								    <img class="humidity" src="/../img/HUMIDITY-SMALL.png">
-								    <span class="humidity-small"></span>
-								  </div>
-								</div>
+					  <div class="col-md-6 weather-temp">
+					    <div class="weather temp">
+					      <div class="temp_max"></div>
+						    <div class="temp_min"></div>
+					    </div>
+						</div>
+						<div class="col-md-3 weather-cond">
+							<div class="weather cond">
+							  <div class="wind-div">
+							    <img class="wind" src="/../img/WIND-SMALL.png">
+							    <span class="wind-small"></span>  
+							  </div>
+							  <div class="humidity-div">
+							    <img class="humidity" src="/../img/HUMIDITY-SMALL.png">
+							    <span class="humidity-small"></span>
+							  </div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="map">
-					<div class="row">
-						<div class="col-md-12">
-							<div id="map" class="map-div"></div>
-						</div>
+			</div>
+			<div class="map">
+				<div class="row">
+					<div class="col-md-12">
+						<div id="map" class="map-div"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="container" style="padding: 0; margin-bottom: 5%">
-    <div class="row row-comments">
-      <div class=col-md-6>
-        <div class="ui comments">
-          <!--<h3 class="ui dividing header">Comments</h3>-->
-          <!--Itiration through Campground's comments-->
-          <% campground.comments.forEach(function(comment){ %> 
-          <div class="comment">
-            <a class="avatar">
-              <img src="<%= comment.author.profilePic %>">
-            </a>
-            <div class="text-content">
-              <a href="/profile/<%= comment.author.id %>" class="author"><%= comment.author.username %></a>
-              <div class="metadata">
-                <time class="timeago" datetime="<%= comment.updatedAt.toISOString() %>"></time>
-              </div>
-              <div class="text">
-                <%= comment.text %>
-              </div>
-              <div class="actions comment-actions">
-                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-                  <form id="delete-comment-form-<%= comment._id %>" action="/campgrounds/<%= campground._id %>/<%= comment._id %>?_method=DELETE" method="POST">
-                    <a class="delete-comment" onclick="document.getElementById('delete-comment-form-<%= comment._id %>').submit()" value="Delete">Delete</a>
-                    <!--<input type="button" id="delete" data-id="mongo id here" />-->
-                  </form>
-                <% } %>
-              </div>
+</div>
+
+<div class="container" style="padding: 0; margin-bottom: 5%">
+  <div class="row row-comments">
+    <div class=col-md-6>
+      <div class="ui comments">
+        <!--<h3 class="ui dividing header">Comments</h3>-->
+        <!--Itiration through Campground's comments-->
+        <% campground.comments.forEach(function(comment){ %> 
+        <div class="comment">
+          <a class="avatar">
+            <img src="<%= comment.author.profilePic %>">
+          </a>
+          <div class="text-content">
+            <a href="/profile/<%= comment.author.id %>" class="author"><%= comment.author.username %></a>
+            <div class="metadata">
+              <time class="timeago" datetime="<%= comment.updatedAt.toISOString() %>"></time>
             </div>
-            <hr>
+            <div class="text">
+              <%= comment.text %>
+            </div>
+            <div class="actions comment-actions">
+              <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                <form id="delete-comment-form-<%= comment._id %>" action="/campgrounds/<%= campground._id %>/<%= comment._id %>?_method=DELETE" method="POST">
+                  <a class="delete-comment" onclick="document.getElementById('delete-comment-form-<%= comment._id %>').submit()" value="Delete">Delete</a>
+                  <!--<input type="button" id="delete" data-id="mongo id here" />-->
+                </form>
+              <% } %>
+            </div>
           </div>
-          <% }) %>
+          <hr>
         </div>
+        <% }) %>
       </div>
     </div>
-    <!--Form to submit new comment-->
-    <div class="row">
-      <div class="col-md-6" style="text-align: center;">
-        <form class="ui reply form form-display" action="/campgrounds/<%= campground._id %>" method="POST">
-          <div class="field">
-            <textarea class="form-control" type="text" name="comment[text]" placeholder="Write a comment... 250 Characters max" maxlength="250"></textarea>
-          </div>
-          <button class="ui submit button comment" style="margin-bottom: 20px;">
-            Add Comment
-          </button>
-        </form>
-      </div> 
-    </div>
-	</div>
+  </div>
+  <!--Form to submit new comment-->
+  <div class="row">
+    <div class="col-md-6" style="text-align: center;">
+      <form class="ui reply form form-display" action="/campgrounds/<%= campground._id %>" method="POST">
+        <div class="field">
+          <textarea class="form-control" type="text" name="comment[text]" placeholder="Write a comment... 250 Characters max" maxlength="250"></textarea>
+        </div>
+        <button class="ui submit button comment" style="margin-bottom: 20px;">
+          Add Comment
+        </button>
+      </form>
+    </div> 
+  </div>
+</div>
 
 <% include ../partials/footer %>

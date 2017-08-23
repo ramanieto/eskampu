@@ -767,6 +767,10 @@ header.nav-is-visible {
 	width: 100%;
 }
 
+.welcome, .welcome-text {
+  color: white;
+}
+
 .thumbnail {
   display: block;
   line-height: 1.42857143;
