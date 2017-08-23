@@ -1,6 +1,7 @@
-var mongoose = require("mongoose");
-var bcrypt = require("bcryptjs");
-var passportLocalMongoose = require("passport-local-mongoose");
+var passportLocalMongoose = require("passport-local-mongoose"),
+    mongoose              = require("mongoose"),
+    bcrypt                = require("bcryptjs");
+
 mongoose.Promise = global.Promise;
 
 var UserSchema = new mongoose.Schema({
@@ -14,7 +15,7 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String
-  },
+  }, 
   email:{
     type: String,
     trim: true,
@@ -50,19 +51,16 @@ var UserSchema = new mongoose.Schema({
     name: String,
     profilePic: String
   },
-  liked_campgrounds: [
-    {
-      id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Campground"
-      }
-    }
-  ],
+  isActive: false,
   resetPasswordToken: String,
-  resetPasswordExpires: Date
-  // active: false,
-  // email_confirmation_hash: String
+  resetPasswordExpires: Date,
+  email_verification: String,
+  email_verification_expires: Date
 });
+
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.password)
+}
 
 UserSchema.plugin(passportLocalMongoose);
 

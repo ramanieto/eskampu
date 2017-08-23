@@ -54,7 +54,6 @@ middlewareObj.checkUserOwnership = function(req, res, next) {
            if(err){
                res.redirect("back");
            } else {
-                console.log(foundUser);
                if(foundUser._id.equals(req.user._id)) {
                    next();
                } else {
@@ -74,7 +73,6 @@ middlewareObj.isLoggedIn = function(req, res, next){
         return next();
     }
     req.flash("error", "You need to login!");
-    console.log(res.body)
     res.redirect("/");
 };
 

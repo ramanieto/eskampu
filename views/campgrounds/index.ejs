@@ -3,7 +3,12 @@
 <script>
   window.initMap = function() {};
 </script>
-<div style="min-height: 88.6%; padding-top: 50px;">
+<style>
+  .cd-main-content {
+    padding-top: 0;
+  }
+</style>
+<div style="min-height: 88.6%;">
   <div class="campgrounds-index">
     <div class="img-opacity"> 
       <h1 class="welcome">CAMPGROUNDS</h1>
@@ -14,7 +19,7 @@
           <form accept-charset="utf-8" class="input-group" action="search/results" method="GET" role="search">
             <div class="input-group">
               <div class="input-group-btn">
-                <select id="select" class="selectpicker" name="option">
+                <select id="select" class="selectpicker" name="option"> 
                   <option value="all">All</option>
                   <option value="name">Name</option>
                   <option value="location">Location</option>
@@ -47,9 +52,19 @@
   
   <div  class="container">
   <div class="row text-center d-fw">
+    <div class="container" style="position: relative;">
+	    <% if (typeof error == 'object' && error) { %>
+        <% if (error.length > 0){ %>  
+          <div class="alert alert-danger" role="alert"><%= error %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+        <% } %>
+      <% } %> 
+      <% if (success && success.length > 0) { %>
+        <div class="alert alert-success" role="alert"><%= success %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+      <% } %>
+    </div>
     <% campgrounds.forEach(function(campground){ %>
       <div class="col-md-4 col-sm-12" style="text-align: left;">
-        <div class="thumbnail" style="height:250px; width:100%;">
+        <div class="thumbnail" style="height:250px; width:100%; box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.5);">
           <a href="/campgrounds/<%= campground._id %>">
             <img src="<%= campground.image %>" style="height:250px; width:100%; position:relative;">
           </a>

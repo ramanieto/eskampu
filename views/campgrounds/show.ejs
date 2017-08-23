@@ -1,21 +1,19 @@
 <% include ../partials/header %>
-  <div class="container">
-      <% if(error && error.length > 0) { %>
-    <div class="alert alert-danger" role="alert">
-      <%= error %>
-    </div>
+  <div class="container" style="position: relative;">
+    <% if (typeof error == 'object' && error) { %>
+      <% if (error.length > 0){ %>  
+        <div class="alert alert-danger" role="alert"><%= error %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
       <% } %>
-      <% if(success && success.length > 0) { %>
-    <div class="alert alert-success" role="alert">
-      <%= success %>
-    </div>
-      <% } %>
+    <% } %> 
+    <% if (success && success.length > 0) { %>
+      <div class="alert alert-success" role="alert"><%= success %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+    <% } %>
   </div>
 
   <div class=container>
     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-      <a class="btn btn-warning" style="margin:30px 0 30px 10px; display: inline-block;" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
-      <form id="delete-form" style="margin:30px 0 30px 0; display: inline-block;" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+      <a class="btn btn-warning" style="margin:10px 0 10px 10px; display: inline-block;" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+      <form id="delete-form" style="margin:10px 0 10px 0; display: inline-block;" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
         <button class="btn btn-danger">Delete</button>
       </form>
     <% } %>

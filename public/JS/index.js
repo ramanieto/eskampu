@@ -13,11 +13,18 @@ $(document).ready(function(){
   // ========================================================================= //
   //RATING PLUGIN
   
-  $('.rating').rating();
+  // $('.rating').rating();
   
   // ========================================================================= //
   
-  $('.dropdown-toggle').dropdown();
+  // $('.dropdown-toggle').dropdown();
+
+  //Flash Closer
+  $('.flash-closer').on('click', function(){
+    $('.alert').css('display', 'none');
+  })
+
+
   
   // ========================================================================= //
 
@@ -47,9 +54,9 @@ $(document).ready(function(){
       $(document).scroll(function() { 
         scroll_start = $(this).scrollTop();
         if(scroll_start > offset.top) {
-          $("header").css('background-color', '#607D8B');
+          $("header").css({'background-color': '#607D8B', 'box-shadow' : '0 3px 3px rgba(0,0,0,0.2)'});
         } else {
-          $("header").css('background-color', 'transparent');
+          $("header").css({'background-color': 'transparent', 'box-shadow' : 'none'});
         }
       });
     }  

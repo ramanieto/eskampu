@@ -26,8 +26,8 @@ var campgroundRoutes = require("./routes/campgrounds"),
     
 
 //Connecting mongoose to the DB
-// mongoose.connect("mongodb://localhost/yelp_camp_v12");
-mongoose.connect("mongodb://rama:lioneljoey@ds143900.mlab.com:43900/eskampu");
+mongoose.connect("mongodb://localhost/yelp_camp_v12");
+// mongoose.connect("mongodb://rama:lioneljoey@ds143900.mlab.com:43900/eskampu");
 
 
 // Init app
@@ -81,8 +81,6 @@ app.use(expressValidator({
   }
 }));
 
-
-
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -105,8 +103,7 @@ passport.use(new FacebookStrategy({
         if(err) 
           return cb(err);
         if(user && user.facebook.id === undefined) {
-          // console.log(user)
-          // return cb(null, user);
+      
           user.facebook.id = profile.id,
           user.facebook.token = accessToken,
           user.facebook.name = profile.displayName,
@@ -229,7 +226,7 @@ app.use("/search", searchRoutes);
 
 //Server
 app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("****SERVER IS RUNNING FOR V20****");
+   console.log("****SERVER IS RUNNING****");
 });
 
 

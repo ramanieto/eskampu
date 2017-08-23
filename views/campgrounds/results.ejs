@@ -3,19 +3,16 @@
   window.initMap = function() {}
 </script>
 
-<div class="container">
-      <% if(error && error.length > 0) { %>
-    <div class="alert alert-danger" role="alert">
-      <%= error %>
-    </div>
-      <% } %>
-      <% if(success && success.length > 0) { %>
-    <div class="alert alert-success" role="alert">
-      <%= success %>
-    </div>
-      <% } %>
-  </div>
-
+<div class="container" style="position: relative;">
+  <% if (typeof error == 'object' && error) { %>
+    <% if (error.length > 0){ %>  
+      <div class="alert alert-danger" role="alert"><%= error %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+    <% } %>
+  <% } %> 
+  <% if (success && success.length > 0) { %>
+    <div class="alert alert-success" role="alert"><%= success %><span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span></div>
+  <% } %>
+</div>
 <div class="container" style="min-height: 100%;">
   <div class="row" style="margin: 0 0 40px 0; padding-top: 70px;">
     <div class="col-lg-6 col-lg-offset-3">
@@ -58,7 +55,6 @@
             <h2 style="margin-bottom: 1px; padding-bottom:0;" class="h2-campground-name"><a class="a-campground-name" href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></h2>
             <h4 style="margin-top: 0; padding-top:0; margin-bottom: 1px; padding-bottom:0;"><%= campground.location.split(",")[1] %></h4>
             <div class="ui star rating no-margin" data-rating="3" data-max-rating="5" style="display: inline-block;"></div>
-					  <p class="p-show no-margin" style="display: inline-block;">387 REVIEWS</p>
           </div>
         </div>
       </div>

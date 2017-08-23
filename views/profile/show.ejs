@@ -1,17 +1,19 @@
 <% include ../partials/header %>
-  <script>
-    window.initMap = function() {};
-  </script>
-  <div class="container" style="height: auto;">
+
+<script>
+  window.initMap = function() {};
+</script>
+
+<div class="container" style="height: auto;">
     <div class="container">
         <% if(error && error.length > 0) { %>
       <div class="alert alert-danger" role="alert">
-        <%= error %>
+        <%= error %> <span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span>
       </div>
         <% } %>
         <% if(success && success.length > 0) { %>
       <div class="alert alert-success" role="alert">
-        <%= success %>
+        <%= success %> <span class="flash-closer glyphicon glyphicon-remove" style="position: relative; cursor: pointer; position: absolute; top: 18px; right: 30px;"> </span>
       </div>
         <% } %>
     </div>
@@ -25,11 +27,11 @@
       <% } %> 
       <div class="row">
         <div class="col-md-3">
-          <div class="thumbnail">
+          <div class="thumbnail thumbnail-profile">
             <img src="<%= user.profilePic %>">
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 profile-box">
           <label>Name:</label>
           <% if (!user.name) { %>
             <p></p>
@@ -38,8 +40,8 @@
           <% } %>  
           <label>Username:</label>
           <p><%= user.username %></p>
-          <label>Email:</label>
-          <p class="email hidden"><%= user.email %></p>
+          <!--<label>Email:</label>-->
+          <!--<p class="email hidden"><%= user.email %></p>-->
           <% if (user._id) { %>
             <% if(currentUser && user._id.equals(currentUser._id)){ %>
               <a class="btn btn-warning" href="/profile/<%= user._id %>/edit">Edit</a>
@@ -51,9 +53,6 @@
           <% if (!user._id) { %>
             <% if(currentUser && user.id.equals(currentUser._id)){ %>
               <a class="btn btn-warning" href="/profile/<%= user.id %>/edit">Edit</a>
-              <!--<form id="delete-form" action="/campgrounds/<*%= campground._id %>?_method=DELETE" method="POST">-->
-              <!--  <button class="btn btn-danger">Delete</button>-->
-              <!--</form>-->
             <% } %>
           <% } %>
         </div>
@@ -71,6 +70,12 @@
                 <h2 style="margin-bottom: 1px; padding-bottom:0;" class="h2-campground-name"><a class="a-campground-name" href="/campgrounds/<%= campground._id %>"><%= campground.name %></a></h2>
                 <h4 style="margin-top: 0; padding-top:0; margin-bottom: 1px; padding-bottom:0;"><%= campground.location.split(",")[1] %></h4>
               </div>
+              <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                <a class="btn btn-warning" style="display: inline-block;" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                <form id="delete-form" style="display: inline-block;" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+              <% } %>
             </div>
           </div>
         <% }); %>
