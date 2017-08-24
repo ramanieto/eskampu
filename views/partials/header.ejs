@@ -190,7 +190,7 @@
   				<form class="cd-form" form action="../login" method="POST">
   					<p class="fieldset">
   						<label class="image-replace cd-username" for="signin-username">Username</label>
-  						<input class="full-width has-padding has-border" pattern="\w{4,18}" required name="username" id="signin-username" type="text" placeholder="Username" title="Username must be at least 4 characters long and contain alphanumeric digits and underscores (e.g. jhondoe, jhon_doe)">
+  						<input class="full-width has-padding has-border" pattern="([0-9A-Za-z_-]){4,}" required name="username" id="signin-username" type="text" placeholder="Username" title="Username must be at least 4 characters long and contain alphanumeric digits and underscores (e.g. jhondoe, jhon_doe)">
   						<span class="cd-error-message">Error message here!</span>
   					</p>
   
@@ -228,7 +228,7 @@
   				<form class="cd-form" form action="../register" method="POST">
   					<p class="fieldset">
   						<label class="image-replace cd-username" for="signup-username">Username</label>
-  						<input id="username-reg" class="full-width has-padding has-border" pattern="\w{4,18}" required name=username id="signup-username" type="text" placeholder="Username" title="Username must be at least 4 characters long and contain alphanumeric digits and underscores (e.g. jhondoe, jhon_doe)">
+  						<input id="username-reg" class="full-width has-padding has-border" pattern="([0-9A-Za-z_-]){4,}" required name=username id="signup-username" type="text" placeholder="Username" title="Username must be at least 4 characters long and contain alphanumeric digits and underscores (e.g. jhondoe, jhon_doe)">
   						<!--<span class="cd-error-message">Username must be 4 to 10 characters long and contain alphanumeric digits and underscores!</span>-->
   					</p>
   
