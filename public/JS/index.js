@@ -14,7 +14,18 @@ $(document).ready(function(){
   //RATING PLUGIN
   
   // $('.rating').rating();
-  
+  document.getElementById('username-reg').oninvalid = function(event) {
+    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+  }
+  document.getElementById('password-reg').oninvalid = function(event) {
+    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+  }
+  document.getElementById('signin-username').oninvalid = function(event) {
+    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+  }
+  document.getElementById('signin-password').oninvalid = function(event) {
+    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+  }
   // ========================================================================= //
   
   // $('.dropdown-toggle').dropdown();
