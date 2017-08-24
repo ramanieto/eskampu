@@ -190,13 +190,13 @@
   				<form class="cd-form" form action="../login" method="POST">
   					<p class="fieldset">
   						<label class="image-replace cd-username" for="signin-username">Username</label>
-  						<input class="full-width has-padding has-border" pattern="\w{4,18}" required name="username" id="signin-username" type="text" placeholder="Username" title="username can only have letters/numbers and _">
+  						<input class="full-width has-padding has-border" pattern="\w{4,18}" required name="username" id="signin-username" type="text" placeholder="Username">
   						<span class="cd-error-message">Error message here!</span>
   					</p>
   
   					<p class="fieldset">
   						<label class="image-replace cd-password" for="signin-password">Password</label>
-  						<input class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signin-password" type="text"  placeholder="Password" title="Password must be 8 or more characters that contains least one number, one uppercase and one lowercase letter">
+  						<input class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signin-password" type="text"  placeholder="Password">
   						<a href="#0" class="hide-password">Hide</a>
   						<!--<span class="cd-error-message">Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter</span>-->
   					</p>
@@ -229,12 +229,6 @@
   					<p class="fieldset">
   						<label class="image-replace cd-username" for="signup-username">Username</label>
   						<input id="username-reg" class="full-width has-padding has-border" pattern="\w{4,18}" required name=username id="signup-username" type="text" placeholder="Username">
-  						<script>
-  						  var input = $('#signup-username');
-                input.oninvalid = function(event) {
-                  event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (Ex: jhondoe, jhon_doe)');
-                }
-  						</script>
   						<!--<span class="cd-error-message">Username must be 4 to 10 characters long and contain alphanumeric digits and underscores!</span>-->
   					</p>
   
@@ -246,7 +240,7 @@
   
   					<p class="fieldset">
   						<label class="image-replace cd-password" for="signup-password">Password</label>
-  						<input id="password-reg" class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signup-password" type="text"  placeholder="Password" title="Password must be 8 or more characters long and that contain least one number, one uppercase and one lowercase letter">
+  						<input id="password-reg" class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signup-password" type="text"  placeholder="Password">
   						<a href="#0" class="hide-password">Hide</a>
   						<!--<span class="cd-error-message">Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter</span>-->
   					</p>

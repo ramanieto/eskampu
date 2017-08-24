@@ -18,13 +18,13 @@ $(document).ready(function(){
     event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
   }
   document.getElementById('password-reg').oninvalid = function(event) {
-    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+    event.target.setCustomValidity('Password must be 8 or more characters that contains least one number, one uppercase and one lowercase letter');
   }
   document.getElementById('signin-username').oninvalid = function(event) {
     event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
   }
   document.getElementById('signin-password').oninvalid = function(event) {
-    event.target.setCustomValidity('Username must be 4 to 10 characters long and contain alphanumeric digits and underscores! (e.g. jhondoe, jhon_doe)');
+    event.target.setCustomValidity('Password must be 8 or more characters that contains least one number, one uppercase and one lowercase letter');
   }
   // ========================================================================= //
   
