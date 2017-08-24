@@ -190,13 +190,13 @@
   				<form class="cd-form" form action="../login" method="POST">
   					<p class="fieldset">
   						<label class="image-replace cd-username" for="signin-username">Username</label>
-  						<input class="full-width has-padding has-border" pattern="\w{4,10}" required name="username" id="signin-email" type="username" placeholder="Username">
+  						<input class="full-width has-padding has-border" pattern="\w{4,18}" required name="username" id="signin-email" type="username" placeholder="Username" title="username can only have letters/numbers and _">
   						<span class="cd-error-message">Error message here!</span>
   					</p>
   
   					<p class="fieldset">
   						<label class="image-replace cd-password" for="signin-password">Password</label>
-  						<input class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signin-password" type="text"  placeholder="Password">
+  						<input class="full-width has-padding has-border" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required name="password" id="signin-password" type="text"  placeholder="Password" title="Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter">
   						<a href="#0" class="hide-password">Hide</a>
   						<span class="cd-error-message">Password must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter</span>
   					</p>
