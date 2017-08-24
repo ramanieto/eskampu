@@ -67,8 +67,8 @@ router.post('/register', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail', 
         auth: {
-          user: process.env.GMAILEMAIL,
-          pass: process.env.GMAILPW
+          user: GMAILEMAIL,
+          pass: GMAILPW
         }
       });
       var mailOptions = {
