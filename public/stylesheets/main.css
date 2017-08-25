@@ -2013,6 +2013,14 @@ xsigin/signup popup
   .btn-fb, .btn-gplus {
     padding: 10px 20px;
   }
+  .thumbnail.thumbnail-profile {
+   height: auto; 
+  }
+  .profile-box {
+    width: 384px;
+    height: 140px;
+    margin: auto;
+  }
 }
 
 @media (min-width: 600px) and (max-width: 800px) {
@@ -2142,6 +2150,18 @@ xsigin/signup popup
   }
   .btn-fb, .btn-gplus {
     padding: 10px 20px;
+  }
+  .thumbnail.thumbnail-profile {
+   height: auto !important; 
+  }
+  .thumbnail.thumbnail-profile img{
+   height: 250px !important; 
+   border-radius: 0;
+  }
+  .profile-box {
+    width: 704px;
+    height: 140px;
+    margin: auto;
   }
 }  
 
