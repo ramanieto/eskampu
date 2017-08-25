@@ -2016,6 +2016,10 @@ xsigin/signup popup
   .thumbnail.thumbnail-profile {
    height: auto; 
   }
+  .thumbnail.thumbnail-profile img {
+    width: 100%;
+    border-radius: 5px;
+  }
   .profile-box {
     width: 384px;
     height: 130px;
