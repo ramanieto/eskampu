@@ -1127,7 +1127,8 @@ h2.no-margin, .desc {
 .campgrounds-index {
   /*margin-top: 10%;*/
   /*margin-bottom: 2.5%;*/
-  background-color: #f07f28;
+  /*background-color: #f07f28;*/
+  background-color: #009688;
   background-image: url(../img/green-gobbler.png);
   height: 400px;
   box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,0.55);
