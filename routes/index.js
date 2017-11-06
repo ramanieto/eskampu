@@ -9,7 +9,8 @@ var express     = require("express"),
     Campgrounds = require("../models/campground"),
     async       = require("async"),
     nodemailer  = require("nodemailer"),
-    crypto      = require("crypto");
+    crypto      = require("crypto"),
+    dotEnv      = require('dotenv').config();
 
 
 router.get("/", function(req, res){
@@ -185,39 +186,6 @@ router.post('/email-verification/:token', function(req, res) {
   ], function(err) {
   });
 });
-
-//*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+* DO NOT DELETE *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*//
-// router.post("/register", function(req, res){
-//   var email = req.body.email;
-  
-//   var newUser = new User({
-//     username: req.body.username,
-//     email: req.body.email,
-//     password: req.body.password
-//   });
-  
-  
-//   User.register(newUser, req.body.password, function(err, user){
-//     if (err) {
-//         if(err.code === 11000) {
-//           req.flash("error", "Email already exists!");
-//           res.redirect("/");
-//         } else {
-//           req.flash("error", err.message);
-//           res.redirect("/");
-//         }
-//     } else {
-//       // passport.authenticate("local")(req, res, function(){
-//           // req.flash("success", "Welcome to YelpCamp " + user.username);
-//           // res.redirect("/profile/" + user._id); 
-//       // });
-//       res.redirect('/');
-//     }  
-//   });
-  
-  
-// });
-//*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+* DO NOT DELETE *+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*//
 
 router.post("/login", function(req, res, next) {
   passport.authenticate("local",function(err, user, info){

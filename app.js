@@ -26,8 +26,7 @@ var campgroundRoutes = require("./routes/campgrounds"),
     
 
 //Connecting mongoose to the DB
-// mongoose.connect("mongodb://localhost/yelp_camp_v12");
-mongoose.connect("mongodb://rama:lioneljoey@ds143900.mlab.com:43900/eskampu");
+mongoose.connect(process.env.DB_URI);
 
 
 // Init app
@@ -54,7 +53,7 @@ app.use(methodOverride("_method"));
 
 //PASSPORT CONFIGURATION
 app.use(session({
-    secret: "I do not understand what is this for",
+    secret: "secret message",
     resave: false,
     saveUninitialized: false
 }));
@@ -86,14 +85,13 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Facebook Strategy and Logic
-var FACEBOOK_APP_ID = '1617903338238350';
-var FACEBOOK_APP_SECRET= 'f9b223efdd87f37689dc2905d96ca536';
+var FACEBOOK_APP_ID = process.env.FACEBOOK_APP_ID;
+var FACEBOOK_APP_SECRET= process.env.FACEBOOK_APP_SECRET;
 
 passport.use(new FacebookStrategy({
     clientID: FACEBOOK_APP_ID,
     clientSecret: FACEBOOK_APP_SECRET,
-    // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io:80/auth/facebook/callback',
-    callbackURL: 'http://www.eskampu.com/auth/facebook/callback',
+    callbackURL: process.env.FACEBOOK_CB_URI,
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture.type(large)', 'emails']
   },
@@ -145,14 +143,13 @@ passport.use(new FacebookStrategy({
 //End of Facebook Strategy
 
 //Google Strategy and Logic
-var GOOGLE_APP_ID = '29998186893-dhbdgp80ssot65vj965ejaskemnt8jph.apps.googleusercontent.com';
-var GOOGLE_APP_SECRET= 'bqlcPdcly_J2IiGj4A1B3UBK';
+var GOOGLE_APP_ID = process.env.GOOGLE_APP_ID;
+var GOOGLE_APP_SECRET= process.env.GOOGLE_APP_SECRET;
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_APP_ID,
     clientSecret: GOOGLE_APP_SECRET,
-    // callbackURL: 'http://webdevbootcamp2-ramanieto.c9users.io/auth/google/callback',
-    callbackURL: 'http://www.eskampu.com/auth/google/callback',
+    callbackURL: process.env.GOOGLE_CB_URI,
     enableProof: true,
     profileFields: ['displayName','id', 'first_name', 'gender', 'last_name', 'picture', 'emails']
   },
@@ -174,7 +171,6 @@ passport.use(new GoogleStrategy({
             if(err) {
               console.log(err);
             } else {
-              console.log("is this it-----------"+updatedUser);
             }
           });
         } 

@@ -25,7 +25,7 @@ var UserSchema = new mongoose.Schema({
   },
   profilePic: {
     type: String, 
-    default: 'https://thesocietypages.org/socimages/files/2009/05/vimeo.jpg'
+    default: '../img/default-img.jpg'
   },
   campground: [
       {

@@ -8,10 +8,6 @@ html {
 
 body {
   padding-top: 80px;
-  /*min-height: 70%;*/
-  /*min-height: -webkit-calc(100% - 186px);*/
-  /*min-height: -moz-calc(100% - 186px);*/
-  /*min-height: calc(100% - 186px);*/
 }
 
 img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
@@ -552,9 +548,6 @@ header.nav-is-visible {
 }
 
 .welcome-main {
-  /*background: linear-gradient(to bottom, rgba(255, 152, 0, 0) 50%,rgba(255, 87, 34, 0.43) 100%), url(../img/jake-ingle-140410.jpg) repeat 0 0;*/
-  /*background: linear-gradient(to bottom, rgba(0,0,0,0.3) 100%,rgba(0,0,0,0.5) 100%), url('../stylesheets/css/jake-ingle-140410.jpg') repeat 0 0;*/
-  /*background: linear-gradient(0deg, rgba(44, 44, 44, 0.2), rgba(224, 23, 3, 0.35)), url(../img/jake-ingle-140410.jpg) repeat 0 0;*/
   background: linear-gradient(0deg, rgba(44, 44, 44, 0), rgba(224, 23, 3, 0)), url(../img/jake-ingle-140410.jpg) repeat 0 0;
 	margin-top: 0;
   height: 840px;
@@ -641,13 +634,9 @@ header.nav-is-visible {
 }
 
 .l-a-bc-and-h {
-  /*background: rgba(244, 127, 13, 0.87);*/
-  /*background: url(../img/img-noise-361x370.png);*/
   background-color: #f07f28;
   background-image: url("../img/green-gobbler.png");
- /*background-image: url("../img/inspiration-geometry.png");*/
   height: 430px;
-  /*display: table;*/
   color: white;
   width: 100%;
   margin-bottom: 50px;
@@ -694,8 +683,6 @@ header.nav-is-visible {
 .icon-adventure {
   height: 100%;
   text-align: center;
-  /*display: table-cell;*/
-  /*vertical-align: middle;*/
 }
 .icon-adventure img{
   width: 100px;
@@ -750,7 +737,6 @@ header.nav-is-visible {
 }
 .featured-img:hover figcaption{
 	opacity: 1;
-	/*transform: translate(15px, 15px);*/
 	transform: scale(0.984, 0.975);
 	z-index: 1;
 	cursor: default;
@@ -759,7 +745,6 @@ header.nav-is-visible {
 .rectangle{
 	height: 450px;
 	width: 100%;
-	/*margin-bottom: 2%;*/
 	padding: 0;
 }
 .square {
@@ -1037,7 +1022,6 @@ h2.no-margin, .desc {
   display: none;
 }
 .form-control{
-  /*-webkit-box-shadow: inset 1px 6px 10px -8px rgba(0,0,0,0.75);*/
   box-shadow: inset 1px 6px 10px -8px rgba(0,0,0,0.75);
 }
 
@@ -1068,7 +1052,6 @@ h2.no-margin, .desc {
 
 .ui.form textarea:focus {
   border-radius: 0;
-  /*border-color: #FF9800;*/
 }
 
 .ui.comments .comment .text {
@@ -1120,14 +1103,10 @@ h2.no-margin, .desc {
 }
 
 .col-lg-6 input[type=text] {
-  /*display: inline-flex;*/
   margin: 0;
   width: 360px;
 }
 .campgrounds-index {
-  /*margin-top: 10%;*/
-  /*margin-bottom: 2.5%;*/
-  /*background-color: #f07f28;*/
   background-color: #009688;
   background-image: url(../img/green-gobbler.png);
   height: 400px;
@@ -1224,10 +1203,7 @@ nav {
     width: 100%;
     height: 80px;
     line-height: 80px;
-    /* padding left = logo size + logo left position*/
     padding: 0 5% 0 calc(5% + 124px);
-    /*background: #ff9800;*/
-    /*background: #607D8B;*/
     text-align: right;
   }
   .cd-main-nav li {
@@ -1263,8 +1239,6 @@ nav {
   }
   .cd-main-nav .cd-subnav-trigger {
     z-index: 1;
-    /*border: 1px solid rgba(255, 255, 255, 0.2);*/
-    /*border-radius: 5em;*/
     -webkit-transition: border 0.3s;
     -moz-transition: border 0.3s;
     transition: border 0.3s;
@@ -1856,9 +1830,6 @@ xsigin/signup popup
   color: #FFF;
   text-decoration: underline;
 }
-/*.cd-user-modal input[type=text]:invalid {*/
-/*  outline: red;*/
-/*}*/
 
 .cd-close-form {
   /* form X button on top right */
